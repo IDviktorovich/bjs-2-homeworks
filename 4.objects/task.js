@@ -5,62 +5,38 @@ function Student(name, gender, age) {
 }
 
 Student.prototype.setSubject = function (subjectName) {
-  let subject;
   this.subject = subjectName;
-  return {
-    subject,
-  };
 }
 
 Student.prototype.addMark = function (mark) {
-  let marks;
-  
   if (this.marks === undefined) { 
     this.marks = Array.from(mark);
     this.marks.unshift(mark);
   } else {
-      this.marks.push(mark);
-    }
-  
-  return {
-    marks
-    };
+    this.marks.push(mark);
+  }
 }
 
 Student.prototype.addMarks = function (...markN) {
-  let marks;
   this.marks = Array.from(markN)
-  return {
-    marks,
-  };
 }
 
 Student.prototype.getAverage = function () {
-  let avg;
-  avg = this.marks.reduce((acc, item, idx, arr) => {
+  return this.marks.reduce((acc, item, idx, arr) => {
     acc += item;
     if (idx === arr.length - 1) {
       return acc / arr.length;
     } else {
       return acc;
     }
-  },)
-
-  return {
-    avg,
-  };
+  },);
 }
 
 Student.prototype.exclude = function (reason) {  
   delete this.subject;
   delete this.marks;
 
-  let excluded;
   this.excluded = reason;
-  
-  return {
-    excluded,
-  };
 }
 
 const dima = new Student("Dima", "male", "24");
