@@ -88,7 +88,8 @@ class Library {
     if (this.books.findIndex(item => item.name === bookName) === -1) {
       return null;
     } else {
-      return this.books.splice(this.books.findIndex(item => item.name === bookName), 1);
+      let neededBook = this.books.splice(this.books.findIndex(item => item.name === bookName), 1);
+      return neededBook.find(item => item.name === bookName);
     }
   }
 }
